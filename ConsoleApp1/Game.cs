@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     internal class Game
     {
-        private Field field = new Field(15, 10, 7);
+        private Field field = new Field(15, 10, 40);
         private Player player = new Player();
         private Controller controller;
         private Renderer renderer;
