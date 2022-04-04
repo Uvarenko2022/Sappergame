@@ -63,6 +63,11 @@ namespace Common
             for (int i = 0; i < BombsAmount; i++)
             {
                 bombs[i] = new Point(random.Next(1, Width - 1), random.Next(1, Height - 1));
+                if(bombs[i].X == 1 && bombs[i].Y == 1)
+                {   
+                    --i;
+                    continue;
+                }
             }
 
             return bombs;
