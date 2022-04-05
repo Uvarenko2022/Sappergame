@@ -44,7 +44,7 @@ namespace Common
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    if (IntToBool(Array.FindLastIndex(bombs, x => (x.X == j && x.Y == i)))) SetCell(new Point(j, i), new BombCell());
+                    if (Array.FindLastIndex(bombs, x => (x.X == j && x.Y == i)) > -1) SetCell(new Point(j, i), new BombCell());
                     else if (i == 0) SetCell(new Point(j, i), new BorderCell());
                     else if (i == Height - 1) SetCell(new Point(j, i), new BorderCell());
                     else if (j == 0 && i > 0 && i < Height - 1) SetCell(new Point(j, i), new BorderCell());
@@ -90,12 +90,6 @@ namespace Common
         {
             if (FieldArr[Position.Y, Position.X].val == CellValues.BorderCell) 
                 player.Position = new Point(GetNearestEmptyCell(Position).X, GetNearestEmptyCell(Position).Y);
-        }
-
-        private bool IntToBool(int val)
-        {
-            if(val < 0) return false;
-            else return true;
         }
         
         public Cell GetCell(Point point)
